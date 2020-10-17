@@ -15,3 +15,25 @@ class TestClass{
     }
 }
 
+// kotlin에서는 기본적으로 상속이 거부되어 있음
+// 선조클래스를 open으로 지정해야 함
+open class ParentClass{
+    var name : String = this.toString();    // 파이썬의 __str__(self):
+    fun getMyName() : String = name;
+}
+
+// 상속받을 때는 선조클래스를 "class passwd : 선조클래스명(생성자인자){}" 형식으로 해야 함
+class ChildClass : ParentClass(){
+
+}
+
+fun main(args: Array<String>) {
+    var obj1 = TestClass();
+    var obj2 = TestClass("파라미터");
+
+    var obj3 = ParentClass();
+    println(obj3.getMyName());
+
+    var obj4 = ChildClass();
+    println(obj4.getMyName());
+}
